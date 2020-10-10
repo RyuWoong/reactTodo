@@ -4,6 +4,7 @@ import { jsx, css } from "@emotion/core";
 import LoginDialog from "./LoginDialog";
 
 import { ButtonStyle } from "../Emotions/Style";
+import { Link } from "react-router-dom";
 
 const box = css`
   padding-left: 1rem;
@@ -14,7 +15,6 @@ function Login({ history }) {
   const [visible, setVisible] = useState(false);
   const onClick = () => {
     setVisible(true);
-    history.push("/login");
   };
 
   const onConfirm = () => {

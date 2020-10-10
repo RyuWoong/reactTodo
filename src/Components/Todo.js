@@ -28,9 +28,9 @@ const Remove = css`
   color: #dee2e6;
   font-size: 24px;
   cursor: pointer;
+  opacity: 0;
   &:hover {
     color: #ff6b6b;
-    opacity: 1;
   }
 `;
 
@@ -39,6 +39,11 @@ const TodoItemBox = css`
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
+  &:hover {
+    .${Remove} {
+      opacity: 1;
+    }
+  }
 `;
 
 const TodoCheckBox = css`
@@ -53,7 +58,7 @@ const TodoCheckBox = css`
 const TodoTextBox = css`
   display: flex;
   align-items: center;
-  box-sizing: content-box;
+  width: 100%;
 `;
 
 const toggleIcon = css`
@@ -64,6 +69,7 @@ const toggleIcon = css`
 const color = (value) => css`
   color: ${value};
 `;
+
 const TodoHead = ({ count }) => {
   return (
     <div>

@@ -17,7 +17,9 @@ function Header() {
       </Link>
       <Login />
       <hr css={diveStyle} />
-      Router 페이지 이동
+      <Link to='/history'>
+        <h3>휴지통</h3>
+      </Link>
     </div>
   );
 }
