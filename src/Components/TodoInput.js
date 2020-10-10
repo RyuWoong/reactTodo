@@ -1,20 +1,17 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 
-const styleBox = css`
-  padding-left: 40px;
-  padding-right: 40px;
-  &::focus {
-    border-radius: 10px;
+const styleInput = css`
+  width: 100%;
+  height: 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px #0066ff;
   }
 `;
 
-const styleInput = css`
-  width: 100%;
-  height: 30px;
-  font-size: 1.5rem;
-  border-radius: 10px;
-`;
 function TodoInput({ onCreate, Todos }) {
   const onSubmit = (e) => {
     const text = e.target.value;
@@ -25,7 +22,7 @@ function TodoInput({ onCreate, Todos }) {
     }
   };
   return (
-    <div css={styleBox}>
+    <div>
       <input
         css={styleInput}
         placeholder='할 일을 입력하세요.'

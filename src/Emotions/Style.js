@@ -71,8 +71,24 @@ export const menuBox = css`
   width: 300px;
   border-right: 1px solid #f8f9fa;
   box-sizing: border-box;
-  text-align: center;
   position: fixed;
+  text-align: center;
+  ul {
+    text-decoration: none;
+  }
+  ul li {
+    margin-bottom: 5px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  li:hover {
+    background: ${lighten(0.1, "#FFF")};
+  }
+  li:active {
+    background: ${darken(0.1, "#FFF")};
+  }
 `;
 
 export const banner = css`
@@ -137,7 +153,13 @@ export const Main = css`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 20px 20px 0 320px;
+  padding: 20px 20px 20px 320px;
   box-sizing: border-box;
   background: #e9ecef;
+`;
+
+export const TrashCan = css`
+  background: white;
+  width: 100%;
+  height: 100%;
 `;

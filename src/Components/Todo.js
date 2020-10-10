@@ -17,8 +17,13 @@ const titleDate = `${nowDate.getFullYear()}년 ${nowDate.getMonth() + 1}월
 ${nowDate.getDate()}일 
 ${arrayDay[nowDate.getDay()]}요일`;
 
-const margin_zero = css`
-  margin: 0;
+const HeadStyle = css`
+  margin-bottom: 20px;
+  h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const Remove = css`
@@ -28,7 +33,7 @@ const Remove = css`
   color: #dee2e6;
   font-size: 24px;
   cursor: pointer;
-  opacity: 0;
+  opacity: 1;
   &:hover {
     color: #ff6b6b;
   }
@@ -37,12 +42,8 @@ const Remove = css`
 const TodoItemBox = css`
   display: flex;
   align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  &:hover {
-    .${Remove} {
-      opacity: 1;
-    }
+  & + & {
+    padding-bottom: 10px;
   }
 `;
 
@@ -72,8 +73,8 @@ const color = (value) => css`
 
 const TodoHead = ({ count }) => {
   return (
-    <div>
-      <h1 css={margin_zero}>{titleDate}</h1>
+    <div css={HeadStyle}>
+      <h1>{titleDate}</h1>
       <h2>
         남은 할일&nbsp;
         <span

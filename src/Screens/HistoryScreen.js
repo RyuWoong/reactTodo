@@ -1,9 +1,13 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import { Main } from "../Emotions/Style";
+import { jsx } from "@emotion/core";
+import { Main, TrashCan } from "../Emotions/Style";
 
 function HistoryScreen() {
-  return <div css={Main}>여기는 HistoryScreen이야.</div>;
+  return (
+    <div css={Main}>
+      <div css={TrashCan}>휴지통</div>
+    </div>
+  );
 }
 
 export default HistoryScreen;
