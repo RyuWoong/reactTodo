@@ -5,10 +5,11 @@ const styleInput = css`
   width: 100%;
   height: 20px;
   font-size: 1rem;
-  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   &:focus {
     outline: none;
-    box-shadow: 0px 0px 2px #0066ff;
+    box-shadow: 0px 0px 2px #0ca678;
   }
 `;
 

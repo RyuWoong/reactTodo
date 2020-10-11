@@ -59,9 +59,6 @@ export const CardStyle = css`
   box-sizing: border-box;
   padding: 3px 10px;
   background: #ffffff;
-  & + & {
-    margin-top: 20px;
-  }
 `;
 
 /* Header */
@@ -154,12 +151,31 @@ export const Main = css`
   width: 100%;
   height: 100%;
   padding: 20px 20px 20px 320px;
-  box-sizing: border-box;
   background: #e9ecef;
 `;
 
 export const TrashCan = css`
+  font-size: 2rem;
   background: white;
   width: 100%;
   height: 100%;
+  padding: 20px 20px;
+  ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  ul li span {
+    width: 100%;
+  }
+`;
+
+export const recoveryButton = css`
+  color: #dee2e6;
+  transition: all ease 0.7s;
+  cursor: pointer;
+  &:hover {
+    color: #0ca678;
+    transform: rotate(-360deg);
+  }
 `;

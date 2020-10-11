@@ -33,7 +33,6 @@ const Remove = css`
   color: #dee2e6;
   font-size: 24px;
   cursor: pointer;
-  opacity: 1;
   &:hover {
     color: #ff6b6b;
   }
@@ -42,9 +41,7 @@ const Remove = css`
 const TodoItemBox = css`
   display: flex;
   align-items: center;
-  & + & {
-    padding-bottom: 10px;
-  }
+  margin-bottom: 10px;
 `;
 
 const TodoCheckBox = css`
@@ -152,6 +149,8 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
 
   const hide = css`
     display: ${showList ? "block" : "none"};
+    transition-property: width;
+    transition-duration: 2s;
   `;
 
   return (
