@@ -149,8 +149,11 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
 
   const hide = css`
     overflow: hidden;
-    transition: all 1s ease-in-out;
-    height: ${showList ? "auto" : 0};
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    height: ${showList ? `${25 * Todos.length}` : "0"};
   `;
 
   return (

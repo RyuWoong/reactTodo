@@ -7,6 +7,7 @@ const styleInput = css`
   font-size: 1rem;
   margin-top: 20px;
   margin-bottom: 20px;
+  box-sizing: border-box;
   &:focus {
     outline: none;
     box-shadow: 0px 0px 2px #0ca678;
