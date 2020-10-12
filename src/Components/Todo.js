@@ -153,7 +153,7 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
     -o-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    height: ${showList ? `${25 * Todos.length}` : "0"};
+    height: ${showList ? `${25 * Todos.length}px` : "0"};
   `;
 
   return (
