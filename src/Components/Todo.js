@@ -148,9 +148,9 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
   };
 
   const hide = css`
-    display: ${showList ? "block" : "none"};
-    transition-property: width;
-    transition-duration: 2s;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    height: ${showList ? "auto" : 0};
   `;
 
   return (

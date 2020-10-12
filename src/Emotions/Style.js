@@ -86,6 +86,11 @@ export const menuBox = css`
   li:active {
     background: ${darken(0.1, "#FFF")};
   }
+  @media (max-width: 720px) {
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
 `;
 
 export const banner = css`
@@ -152,6 +157,9 @@ export const Main = css`
   height: 100%;
   padding: 20px 20px 20px 320px;
   background: #e9ecef;
+  @media (max-width: 720px) {
+    padding-left: 20px;
+  }
 `;
 
 export const TrashCan = css`
