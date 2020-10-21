@@ -33,15 +33,20 @@ const Remove = css`
   color: #dee2e6;
   font-size: 24px;
   cursor: pointer;
+  opacity: 0;
   &:hover {
     color: #ff6b6b;
   }
+  z-index: 0;
 `;
 
 const TodoItemBox = css`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  &:hover > span {
+    opacity : 1;
+  }
 `;
 
 const TodoCheckBox = css`
@@ -92,17 +97,17 @@ const TodoItem = ({ Todo, onToggle, onDelete }) => {
     <li css={TodoItemBox} key={Todo.id}>
       <div css={TodoCheckBox} onClick={() => onToggle(Todo.id)}>
         {Todo.done ? (
-          <span css={color("#0ca678")}>
+          <div css={color("#0ca678")}>
             <MdDone />
-          </span>
+          </div>
         ) : (
           <MdRadioButtonUnchecked />
         )}
       </div>
       <div css={TodoTextBox}>{Todo.text}</div>
-      <div css={Remove} onClick={() => onDelete(Todo.id)}>
+      <span css={Remove} onClick={() => onDelete(Todo.id)}>
         <MdDelete />
-      </div>
+      </span>
     </li>
   );
 };
@@ -153,7 +158,7 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
     -o-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    height: ${showList ? `${25 * Todos.length}px` : "0"};
+    max-height: ${showList ? `${(78 * countTodo)+60}px` : "0"};
   `;
 
   return (
