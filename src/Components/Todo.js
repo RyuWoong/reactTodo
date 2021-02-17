@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from 'react';
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx, css } from '@emotion/core';
 import {
   MdArrowDropDown,
   MdArrowDropUp,
   MdDone,
   MdRadioButtonUnchecked,
   MdDelete,
-} from "react-icons/md";
-import TodoInput from "./TodoInput";
-import { CardStyle } from "../Emotions/Style";
+} from 'react-icons/md';
+import TodoInput from './TodoInput';
+import { CardStyle } from '../Emotions/Style';
 
-const arrayDay = ["일", "월", "화", "수", "목", "금", "토"];
+const arrayDay = ['일', '월', '화', '수', '목', '금', '토'];
 const nowDate = new Date();
 const titleDate = `${nowDate.getFullYear()}년 ${nowDate.getMonth() + 1}월 
 ${nowDate.getDate()}일 
@@ -45,7 +45,7 @@ const TodoItemBox = css`
   align-items: center;
   margin-bottom: 10px;
   &:hover > span {
-    opacity : 1;
+    opacity: 1;
   }
 `;
 
@@ -97,7 +97,7 @@ const TodoItem = ({ Todo, onToggle, onDelete }) => {
     <li css={TodoItemBox} key={Todo.id}>
       <div css={TodoCheckBox} onClick={() => onToggle(Todo.id)}>
         {Todo.done ? (
-          <div css={color("#0ca678")}>
+          <div css={color('#0ca678')}>
             <MdDone />
           </div>
         ) : (
@@ -123,14 +123,7 @@ const TodoList = ({ Todos, onToggle, onDelete }) => {
         if (Todo.del) {
           return null;
         } else {
-          return (
-            <TodoItem
-              key={Todo.id}
-              Todo={Todo}
-              onToggle={onToggle}
-              onDelete={onDelete}
-            />
-          );
+          return <TodoItem key={Todo.id} Todo={Todo} onToggle={onToggle} onDelete={onDelete} />;
         }
       })}
     </ul>
@@ -138,18 +131,27 @@ const TodoList = ({ Todos, onToggle, onDelete }) => {
 };
 
 function Todo({ Todos, onCreate, onToggle, onDelete }) {
-  const [showList, setShowList] = useState(false);
+  const listRef = useRef();
+  const listHeight = useRef();
+  const [showList, setShowList] = useState(true);
 
-  const countTodo = Todos.filter(
-    (Todo) => Todo.done === false && Todo.del === false
-  ).length;
+  const countTodo = Todos.filter((Todo) => Todo.done === false && Todo.del === false).length;
 
   useEffect(() => {
-    localStorage.setItem("Todos", JSON.stringify(Todos));
+    localStorage.setItem('Todos', JSON.stringify(Todos));
+    if (listRef.current.clientHeight !== 0) {
+      listHeight.current = listRef.current.clientHeight;
+      console.log(listHeight.current);
+    }
   });
 
   const onShow = () => {
     setShowList(!showList);
+    if (showList === false) {
+      listRef.current.style.height = `${listHeight.current}px`;
+    } else {
+      listRef.current.style.height = '0';
+    }
   };
 
   const hide = css`
@@ -158,13 +160,12 @@ function Todo({ Todos, onCreate, onToggle, onDelete }) {
     -o-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    max-height: ${showList ? `${(78 * countTodo)+60}px` : "0"};
   `;
 
   return (
     <div css={CardStyle}>
       <TodoHead count={countTodo} />
-      <div css={hide}>
+      <div css={hide} ref={listRef}>
         <TodoList Todos={Todos} onToggle={onToggle} onDelete={onDelete} />
         <TodoInput Todos={Todos} onCreate={onCreate} />
       </div>

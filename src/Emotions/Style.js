@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { css } from "@emotion/core";
-import { lighten, darken } from "polished";
+import { css } from '@emotion/core';
+import { lighten, darken } from 'polished';
 
 /* 재활용 스타일 */
 const sizing = {
@@ -81,10 +81,10 @@ export const menuBox = css`
     align-items: center;
   }
   li:hover {
-    background: ${lighten(0.1, "#FFF")};
+    background: ${lighten(0.1, '#FFF')};
   }
   li:active {
-    background: ${darken(0.1, "#FFF")};
+    background: ${darken(0.1, '#FFF')};
   }
   @media (max-width: 720px) {
     height: auto;
@@ -157,6 +157,7 @@ export const Main = css`
   height: 100%;
   padding: 20px 20px 20px 320px;
   background: #e9ecef;
+  overflow: auto;
   @media (max-width: 720px) {
     padding-left: 20px;
   }
@@ -168,6 +169,7 @@ export const TrashCan = css`
   width: 100%;
   height: 100%;
   padding: 20px 20px;
+  overflow: auto;
   ul li {
     display: flex;
     align-items: center;
